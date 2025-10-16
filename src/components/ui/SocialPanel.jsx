@@ -54,22 +54,20 @@ const SocialPanel = () => {
         ))}
       </Motion.div>
 
-      {/* Mobile Three-Dot Menu */}
-      <div className="fixed bottom-4 right-4 z-30 md:hidden">
+      {/* Mobile Social Menu */}
+      <div className="fixed bottom-2 right-2 z-30 md:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-dark-light text-primary hover:text-secondary dark:text-primary-light dark:hover:text-secondary-light transition-colors duration-300 shadow-lg hover:shadow-xl"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-dark-light text-primary hover:text-secondary dark:text-primary-light dark:hover:text-secondary-light transition-colors duration-300 shadow-lg hover:shadow-xl"
           aria-label="Toggle social links"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <circle cx="12" cy="6" r="2"/>
-            <circle cx="12" cy="12" r="2"/>
-            <circle cx="12" cy="18" r="2"/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
           </svg>
         </button>
         {isOpen && (
           <Motion.div
-            className="absolute bottom-14 right-0 bg-white dark:bg-dark-light rounded-lg shadow-lg p-4 flex flex-col space-y-4"
+            className="absolute bottom-12 right-0 bg-white dark:bg-dark-light rounded-lg shadow-lg p-2 flex flex-col space-y-2"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.2 }}
@@ -80,7 +78,7 @@ const SocialPanel = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-primary hover:text-secondary dark:text-primary-light dark:hover:text-secondary-light transition-colors duration-300"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-primary hover:text-secondary dark:text-primary-light dark:hover:text-secondary-light transition-colors duration-300"
                 whileHover={{
                   scale: 1.1,
                   boxShadow: '0 0 15px rgba(108, 43, 217, 0.7)'
