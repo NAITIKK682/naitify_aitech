@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    // Choose URI based on environment
-    const mongoUri =
-      process.env.NODE_ENV === 'production'
-        ? process.env.MONGO_URI_ATLAS
-        : process.env.MONGO_URI_LOCAL;
+    const mongoUri = process.env.MONGO_URI;
+
+    if (!mongoUri) {
+      throw new Error('MONGO_URI environment variable is not defined');
+    }
 
     const conn = await mongoose.connect(mongoUri, {
       useNewUrlParser: true,
@@ -17,7 +17,7 @@ const connectDB = async () => {
       bufferCommands: false,     // Disable mongoose buffering
     });
 
-    console.log(`MongoDB connected successfully to ${process.env.NODE_ENV === 'production' ? 'Atlas' : 'local'}: ${conn.connection.host}`);
+    console.log(`MongoDB connected successfully: ${conn.connection.host}`);
   } catch (error) {
     console.error(`Error: ${error.message}`);
     process.exit(1); // Exit process with failure
