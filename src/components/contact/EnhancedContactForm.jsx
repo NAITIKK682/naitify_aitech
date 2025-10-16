@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
+import { contactAPI } from '../../utils/api';
 
 const EnhancedContactForm = () => {
   const { user, getToken } = useAuth();
@@ -29,15 +30,7 @@ const EnhancedContactForm = () => {
         }
       });
 
-      const response = await fetch('http://localhost:5000/api/contact/enhanced', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${getToken()}`
-        },
-        body: formDataToSend
-      });
-
-      if (!response.ok) throw new Error('Failed to send message');
+      await contactAPI.enhancedSubmit(formDataToSend);
 
       setFormData({
         subject: '',

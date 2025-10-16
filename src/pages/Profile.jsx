@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import AnimatedSection from '../components/ui/AnimatedSection';
+import { profileAPI } from '../utils/api';
 
 const Profile = () => {
   const { user, loading, getToken } = useAuth();
@@ -57,15 +58,8 @@ const Profile = () => {
 
   const fetchSettings = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/profile/settings', {
-        headers: {
-          'Authorization': `Bearer ${getToken()}`
-        }
-      });
-      const data = await response.json();
-      if (data.success) {
-        setSettings(data.data);
-      }
+      const data = await profileAPI.getSettings();
+      setSettings(data);
     } catch (error) {
       console.error('Error fetching settings:', error);
     }
@@ -79,15 +73,7 @@ const Profile = () => {
     formData.append('profilePicture', file);
 
     try {
-      const response = await fetch('http://localhost:5000/api/profile/picture', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${getToken()}`
-        },
-        body: formData
-      });
-
-      const data = await response.json();
+      const data = await profileAPI.uploadPicture(formData);
       if (data.success) {
         setSuccess('Profile picture updated successfully');
         // Update user context or refetch user data
@@ -100,20 +86,9 @@ const Profile = () => {
   const handleProfileUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/profile', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${getToken()}`
-        },
-        body: JSON.stringify(profileData)
-      });
-
-      const data = await response.json();
-      if (data.success) {
-        setSuccess('Profile updated successfully');
-        setIsEditing(false);
-      }
+      await profileAPI.update(profileData);
+      setSuccess('Profile updated successfully');
+      setIsEditing(false);
     } catch (error) {
       setError('Error updating profile');
     }
@@ -127,27 +102,16 @@ const Profile = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/profile/password', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${getToken()}`
-        },
-        body: JSON.stringify({
-          currentPassword: passwordData.currentPassword,
-          newPassword: passwordData.newPassword
-        })
+      await profileAPI.updatePassword({
+        currentPassword: passwordData.currentPassword,
+        newPassword: passwordData.newPassword
       });
-
-      const data = await response.json();
-      if (data.success) {
-        setSuccess('Password updated successfully');
-        setPasswordData({
-          currentPassword: '',
-          newPassword: '',
-          confirmPassword: ''
-        });
-      }
+      setSuccess('Password updated successfully');
+      setPasswordData({
+        currentPassword: '',
+        newPassword: '',
+        confirmPassword: ''
+      });
     } catch (error) {
       setError('Error updating password');
     }
@@ -155,19 +119,8 @@ const Profile = () => {
 
   const handleSettingsUpdate = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/profile/settings', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${getToken()}`
-        },
-        body: JSON.stringify(settings)
-      });
-
-      const data = await response.json();
-      if (data.success) {
-        setSuccess('Settings updated successfully');
-      }
+      await profileAPI.updateSettings(settings);
+      setSuccess('Settings updated successfully');
     } catch (error) {
       setError('Error updating settings');
     }

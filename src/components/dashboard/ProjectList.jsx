@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../../components/ui/Card';
 import { format } from 'date-fns';
 import { useAuth } from '../../context/AuthContext';
+import { dashboardAPI } from '../../utils/api';
 
 const ProjectList = () => {
   const [projects, setProjects] = useState([]);
@@ -11,12 +12,7 @@ const ProjectList = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/dashboard/projects', {
-          headers: {
-            'Authorization': `Bearer ${getToken()}`
-          }
-        });
-        const data = await response.json();
+        const data = await dashboardAPI.getProjects();
         setProjects(data.projects);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -30,12 +26,8 @@ const ProjectList = () => {
 
   const downloadInvoice = async (projectId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/dashboard/invoice/${projectId}`, {
-        headers: {
-          'Authorization': `Bearer ${getToken()}`
-        }
-      });
-      
+      const response = await dashboardAPI.downloadInvoice(projectId);
+
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);

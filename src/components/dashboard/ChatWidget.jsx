@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Card from '../../components/ui/Card';
 import { useAuth } from '../../context/AuthContext';
 import { format } from 'date-fns';
+import { dashboardAPI } from '../../utils/api';
 
 const ChatWidget = () => {
   const [messages, setMessages] = useState([]);
@@ -17,12 +18,7 @@ const ChatWidget = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/dashboard/chat', {
-          headers: {
-            'Authorization': `Bearer ${getToken()}`
-          }
-        });
-        const data = await response.json();
+        const data = await dashboardAPI.getChat();
         setMessages(data.messages);
       } catch (error) {
         console.error('Error fetching messages:', error);
@@ -43,20 +39,9 @@ const ChatWidget = () => {
     if (!newMessage.trim()) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/dashboard/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${getToken()}`
-        },
-        body: JSON.stringify({ message: newMessage })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setMessages(prev => [...prev, data.message]);
-        setNewMessage('');
-      }
+      const data = await dashboardAPI.sendChatMessage({ message: newMessage });
+      setMessages(prev => [...prev, data.message]);
+      setNewMessage('');
     } catch (error) {
       console.error('Error sending message:', error);
     }

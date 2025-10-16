@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { contactAPI } from '../../utils/api';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -65,41 +66,30 @@ const ContactForm = () => {
     setErrors({});
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          firstName: formData.name.split(' ')[0],
-          lastName: formData.name.split(' ').slice(1).join(' ') || '',
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          subject: 'Contact Form Submission',
-          privacy: true
-        }),
+      await contactAPI.submit({
+        firstName: formData.name.split(' ')[0],
+        lastName: formData.name.split(' ').slice(1).join(' ') || '',
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        subject: 'Contact Form Submission',
+        privacy: true
       });
 
-      if (response.ok) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Message Sent!',
-          text: 'Our team will contact you shortly.',
-          confirmButtonColor: '#3B82F6'
-        });
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: 'Our team will contact you shortly.',
+        confirmButtonColor: '#3B82F6'
+      });
 
-        // Clear form fields after successful submission
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          message: ''
-        });
-      } else {
-        const data = await response.json();
-        throw new Error(data.message || 'Failed to send message');
-      }
+      // Clear form fields after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
     } catch (error) {
       console.error('Contact form error:', error);
       Swal.fire({

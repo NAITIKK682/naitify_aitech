@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { authAPI } from '../utils/api';
 
 // Create the auth context
 const AuthContext = createContext(null);
@@ -21,25 +22,20 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     if (token) {
       // Verify token with backend
-      fetch('http://localhost:5000/api/auth/me', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.data) {
-          setUser(data.data);
-        } else {
+      authAPI.me()
+        .then(data => {
+          if (data.success && data.data) {
+            setUser(data.data);
+          } else {
+            localStorage.removeItem('token');
+          }
+        })
+        .catch(() => {
           localStorage.removeItem('token');
-        }
-      })
-      .catch(() => {
-        localStorage.removeItem('token');
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     } else {
       setLoading(false);
     }
@@ -48,24 +44,11 @@ export const AuthProvider = ({ children }) => {
   // Login function
   const login = async (email, password, loginType = 'user', adminKey = null) => {
     try {
-      const endpoint = loginType === 'admin' ? '/api/auth/admin-login' : '/api/auth/login';
       const body = loginType === 'admin'
         ? { email, password, adminKey }
         : { email, password };
 
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
-      }
+      const data = loginType === 'admin' ? await authAPI.adminLogin(body) : await authAPI.login(body);
 
       // Store token and user data
       localStorage.setItem('token', data.token);
@@ -80,19 +63,7 @@ export const AuthProvider = ({ children }) => {
   // Signup function
   const signup = async (userData) => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Signup failed');
-      }
+      const data = await authAPI.register(userData);
 
       // Automatically log in after successful signup
       localStorage.setItem('token', data.token);

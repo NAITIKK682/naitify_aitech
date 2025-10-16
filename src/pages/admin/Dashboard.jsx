@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
+import { adminAPI } from '../../utils/api';
 
 const AdminDashboard = () => {
   const { user } = useAuth();
@@ -17,23 +18,12 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     try {
       // Fetch Users
-      const usersResponse = await fetch('http://localhost:5000/api/users', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      const usersData = await usersResponse.json();
-      
+      const usersData = await adminAPI.getUsers();
       // Fetch Contacts
-      const contactsResponse = await fetch('http://localhost:5000/api/contact', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      const contactsData = await contactsResponse.json();
+      const contactsData = await adminAPI.getContacts();
 
-      setUsers(usersData.data);
-      setContacts(contactsData.data);
+      setUsers(usersData);
+      setContacts(contactsData);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -43,14 +33,7 @@ const AdminDashboard = () => {
 
   const handleStatusUpdate = async (contactId, newStatus) => {
     try {
-      await fetch(`http://localhost:5000/api/contact/${contactId}/status`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify({ status: newStatus })
-      });
+      await adminAPI.updateContactStatus(contactId, newStatus);
       fetchData(); // Refresh data
     } catch (error) {
       console.error('Error updating status:', error);
