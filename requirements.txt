@@ -1,0 +1,58 @@
+# Naitify AI Tech Website - Project Requirements
+
+## Frontend Dependencies (React/Vite)
+- React 18.2.0
+- React DOM 18.2.0
+- React Router DOM 6.14.1
+- Framer Motion 7.6.0
+- SweetAlert2 11.26.2
+- React Helmet Async 2.0.5
+- Heroicons React 2.2.0
+- EmailJS Browser 3.8.0
+
+## Backend Dependencies (Node.js/Express)
+- Express 4.18.2
+- MongoDB/Mongoose 7.5.0
+- JWT (jsonwebtoken) 9.0.2
+- bcryptjs 2.4.3
+- CORS 2.8.5
+- Morgan 1.10.0
+- Multer 2.0.2
+- Validator 13.11.0
+- dotenv 16.3.1
+
+## Development Dependencies
+- Vite 5.0.0
+- ESLint 9.36.0
+- Tailwind CSS 3.4.7
+- PostCSS 8.5.6
+- Autoprefixer 10.4.21
+- Nodemon 3.0.1
+
+## System Requirements
+- Node.js (version 16 or higher recommended)
+- MongoDB (local or cloud instance)
+- npm or yarn package manager
+
+## Environment Variables Required
+- MONGO_URI: MongoDB connection string
+- JWT_SECRET: Secret key for JWT tokens
+- NODE_ENV: Environment (development/production)
+- PORT: Server port (default 5000)
+
+## Installation Instructions
+1. Install Node.js and npm
+2. Clone the repository
+3. Run `npm install` in root directory
+4. Run `npm install` in backend directory
+5. Set up environment variables in .env file
+6. Start MongoDB service
+7. Run `npm run dev` for frontend and `npm run dev` in backend for development
+
+## Key Features
+- User authentication and authorization
+- Contact form with file uploads
+- Product management
+- Dashboard with AI suggestions
+- Responsive design with Tailwind CSS
+- SEO optimization

@@ -1,0 +1,27 @@
+/*
+  Production header recommendations (Netlify-style)
+  - Set long cache lifetime for immutable assets
+  - Remove deprecated headers like X-Frame-Options, X-XSS-Protection
+  - Provide modern CSP with frame-ancestors
+  - Ensure Content-Type charset is UTF-8
+*/
+
+/*
+  Default page headers
+*/
+/*  index.html and other HTML responses */
+/  
+/index.html
+  Content-Type: text/html; charset=utf-8
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  Permissions-Policy: geolocation=(), microphone=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-ancestors 'none';
+
+/* Static assets - cache aggressively */
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: text/plain; charset=utf-8
+
+/* Remove deprecated headers by not setting them */
+

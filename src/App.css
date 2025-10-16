@@ -1,0 +1,106 @@
+#root {
+  /* Use full width and allow Tailwind container utilities to control layout */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Hero video styles */
+.hero-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video {
+  width: 100%;
+  height: auto;
+  max-width: 520px;
+  border-radius: 0.75rem;
+  background-color: #000;
+}
+
+.audio-toggle {
+  transition: transform 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  padding: 0.35rem;
+  z-index: 40;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.08);
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,0.9);
+  color: #111827; /* dark text on light background */
+}
+
+.audio-toggle:hover { transform: translateY(-2px) scale(1.02); }
+.audio-toggle:active { transform: scale(0.98); }
+.audio-toggle:focus { outline: 3px solid rgba(99,102,241,0.18); outline-offset: 3px; }
+
+/* Muted vs On states */
+.audio-toggle--muted { background-color: rgba(255,255,255,0.95); border-color: rgba(0,0,0,0.08); color: #111827; }
+.audio-toggle--on { background-color: rgba(16,185,129,0.95); border-color: rgba(16,185,129,0.95); color: #ffffff; }
+
+.audio-icon { width: 22px; height: 22px; }
+
+/* Dark theme overrides (project uses .dark on html or body) */
+.dark .audio-toggle { background-color: rgba(0,0,0,0.6); border-color: rgba(255,255,255,0.12); color: #fff; }
+.dark .audio-toggle--on { background-color: rgba(99,102,241,0.95); border-color: rgba(99,102,241,0.95); color: #fff; }
+
+
+@media (max-width: 767px) {
+  .hero-video {
+    max-width: 100%;
+    border-radius: 0.5rem;
+  }
+  .audio-toggle {
+    bottom: 8px !important;
+    right: 8px !important;
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0.35rem !important;
+  }
+}
