@@ -10,25 +10,25 @@ const About = () => {
       name: "Mr. Naitik Kushwaha",
       role: "Founder, CEO & Full Stack AI Developer",
       bio: "AI Researcher & Full Stack Developer passionate about creating smart web solutions, chatbots, and automation tools using AI and modern technologies.",
-      image: "/src/assets/images/hero-image.jpg",
+      image: "/images/hero-image.jpg",
     },
     {
       name: "Team forming soon",
       role: "Frontend Development",
       bio: "React.js, UI/UX.",
-      image: "/src/assets/images/unknown.jpg", // ✅ removed leading space
+      image: "/images/unknown.jpg", // ✅ removed leading space
     },
     {
       name: "Team forming soon",
       role: "Backend Development",
       bio: "Node.js, Flask, Django,  MongoDB",
-      image: "/src/assets/images/unknown.jpg", // ✅ removed leading space
+      image: "/images/unknown.jpg", // ✅ removed leading space
     },
     {
       name: "Team forming soon",
       role: "Director of Operations",
       bio: "Project management & deployment.",
-      image: "/src/assets/images/unknown.jpg", // ✅ removed leading space
+      image: "/images/unknown.jpg", // ✅ removed leading space
     },
   ];
 
@@ -57,7 +57,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-xl"></div>
               <img
-                src="/src/assets/images/hero-logo.jpeg"
+                src="/images/hero-logo.jpeg"
                 alt="Naitify_AiTech Office"
                 className="relative rounded-xl w-full h-auto shadow-xl"
               />

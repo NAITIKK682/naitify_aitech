@@ -621,8 +621,8 @@ const VideoHero = () => {
       <video
         ref={videoRef}
         className="hero-video w-full h-auto object-contain rounded-xl"
-        src="/src/assets/videos/hero.mp4"
-        poster="/src/assets/images/hero-image.jpg"
+        src="/videos/hero.mp4"
+        poster="/images/hero-image.jpg"
         playsInline
         muted
         loop

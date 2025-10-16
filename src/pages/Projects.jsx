@@ -21,7 +21,7 @@ const Projects = () => {
       title: "Responsive Tour and Travel Website",
       description: "A modern, responsive website showcasing destinations and bookings. Built with HTML, CSS, and JavaScript.",
       technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-      image: "/src/assets/images/tourtravel.png",
+      image: "/images/tourtravel.png",
       category: "Web Development",
       githubUrl: "https://github.com/NAITIKK682/Responsive-Tour-And-Travel-website",
       liveUrl: "https://naitikk682.github.io/Responsive-Tour-And-Travel-website/"
@@ -30,7 +30,7 @@ const Projects = () => {
       title: "Fake News Detection",
       description: "An NLP + ML project to classify news as real or fake. Built with Python, scikit-learn, and Flask with a clean UI.",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "Flask", "Python", "ML", "NLP"],
-      image: "/src/assets/images/fakenews.png",
+      image: "/images/fakenews.png",
       category: "ML",
       githubUrl: "https://github.com/NAITIKK682/Fake-News-Detection-Flask",
       liveUrl: null
@@ -39,7 +39,7 @@ const Projects = () => {
       title: "EHR System with AI Chatbot",
       description: "Electronic Health Record system with integrated AI chatbot for patient assistance and medical data management.",
       technologies: ["Flask", "SQLite", "Python", "AI Chatbot", "HTML", "CSS", "JS"],
-      image: "/src/assets/images/ehrsystem.png",
+      image: "/images/ehrsystem.png",
       category: "AI",
       githubUrl: "https://github.com/NAITIKK682/EHR-SYSTEM",
       liveUrl: "https://ehr-system-2.onrender.com"
@@ -48,7 +48,7 @@ const Projects = () => {
       title: "Vehicle Price Prediction",
       description: "ML model to predict used car prices using features like brand, year, mileage, and condition. Built with Flask and scikit-learn.",
       technologies: ["Python", "ML", "Pandas", "Regression", "Scikit-learn"],
-      image: "/src/assets/images/vehicleprice.png",
+      image: "/images/vehicleprice.png",
       category: "ML",
       githubUrl: "https://github.com/NAITIKK682/vehicle-price-prediction",
       liveUrl: null
@@ -57,7 +57,7 @@ const Projects = () => {
       title: "Heart Disease Prediction",
       description: "ML-based system to predict likelihood of heart disease using patient health metrics. Built with Flask and scikit-learn.",
       technologies: ["Python", "ML", "Pandas", "Flask", "Scikit-learn"],
-      image: "/src/assets/images/heart-disease.png",
+      image: "/images/heart-disease.png",
       category: "ML",
       githubUrl: "https://github.com/NAITIKK682/Heart-Disease-Prediction",
       liveUrl: null
@@ -66,7 +66,7 @@ const Projects = () => {
       title: "Fraud Transaction Detection",
       description: "AI-powered system to detect fraudulent financial transactions using classification and anomaly detection models.",
       technologies: ["Python", "Imbalanced Data", "ML", "Flask", "Scikit-learn"],
-      image: "/src/assets/images/fraud-detection.png",
+      image: "/images/fraud-detection.png",
       category: "AI",
       githubUrl: "https://github.com/NAITIKK682/Fraud-Transaction-Detection",
       liveUrl: null
