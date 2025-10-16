@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 
 // Load environment variables at the very top
-dotenv.config({ path: './.env' });
+dotenv.config({ path: '../.env' });
 
 const express = require('express');
 const cors = require('cors');

@@ -1,4 +1,4 @@
-# TODO
+# TODO for Backend Configuration
 
-- [x] Create backend/routes/welcome.js with GET /welcome endpoint that logs request and returns JSON.
-- [x] Update backend/server.js to mount /api/welcome route.
+- [x] Update backend/config/db.js: Modify console.log to specify 'local' or 'Atlas' based on NODE_ENV
+- [x] Create .env: Add required environment variables (MONGO_URI_LOCAL, MONGO_URI_ATLAS, JWT_SECRET, JWT_EXPIRE, JWT_COOKIE_EXPIRE, ADMIN_KEY, NODE_ENV=development, PORT=5000)
