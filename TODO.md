@@ -1,3 +1,4 @@
 - [x] Fix dotenv.config path in server.js
 - [x] Update db.js to use process.env.MONGO_URI and add safety check
 - [ ] Test server startup
+- [x] Fix SocialPanel icons visibility on mobile view

@@ -1,4 +1,5 @@
 import { motion as Motion } from 'framer-motion';
+import { useState } from 'react';
 
 const socialLinks = [
   { name: 'WhatsApp', url: 'https://wa.me/918948866980?text=Hello!%20I%E2%80%99m%20interested%20in%20your%20AI%20tools%20and%20website%20services.%20Can%20we%20connect%3F%0A%0AMy%20Contact%20Details%3A%0AName%3A%20%0APhone%20Number%3A%20%0AEmail%20ID%3A%20%0ACity%20%2F%20State%3A%20%0ACompany%20%2F%20Organization%3A%20%0AWebsite%20(if%20any)%3A%20%0AMessage%20%2F%20Query%3A', icon: (
@@ -24,30 +25,76 @@ const socialLinks = [
 ];
 
 const SocialPanel = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Motion.div 
-      className="fixed right-4 top-1/2 transform -translate-y-1/2 z-30 hidden md:flex flex-col space-y-4"
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.5, duration: 0.5 }}
-    >
-      {socialLinks.map((social) => (
-  <Motion.a
-          key={social.name}
-          href={social.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-dark-light text-primary hover:text-secondary dark:text-primary-light dark:hover:text-secondary-light transition-colors duration-300 shadow-lg hover:shadow-xl"
-          whileHover={{ 
-            scale: 1.1,
-            boxShadow: '0 0 15px rgba(108, 43, 217, 0.7)'
-          }}
-          aria-label={social.name}
+    <>
+      {/* Desktop Social Panel */}
+      <Motion.div
+        className="fixed right-4 top-1/2 transform -translate-y-1/2 z-30 hidden md:flex flex-col space-y-4"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      >
+        {socialLinks.map((social) => (
+          <Motion.a
+            key={social.name}
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-dark-light text-primary hover:text-secondary dark:text-primary-light dark:hover:text-secondary-light transition-colors duration-300 shadow-lg hover:shadow-xl"
+            whileHover={{
+              scale: 1.1,
+              boxShadow: '0 0 15px rgba(108, 43, 217, 0.7)'
+            }}
+            aria-label={social.name}
+          >
+            {social.icon}
+          </Motion.a>
+        ))}
+      </Motion.div>
+
+      {/* Mobile Three-Dot Menu */}
+      <div className="fixed bottom-4 right-4 z-30 md:hidden">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-dark-light text-primary hover:text-secondary dark:text-primary-light dark:hover:text-secondary-light transition-colors duration-300 shadow-lg hover:shadow-xl"
+          aria-label="Toggle social links"
         >
-          {social.icon}
-  </Motion.a>
-      ))}
-  </Motion.div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="6" r="2"/>
+            <circle cx="12" cy="12" r="2"/>
+            <circle cx="12" cy="18" r="2"/>
+          </svg>
+        </button>
+        {isOpen && (
+          <Motion.div
+            className="absolute bottom-14 right-0 bg-white dark:bg-dark-light rounded-lg shadow-lg p-4 flex flex-col space-y-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.2 }}
+          >
+            {socialLinks.map((social) => (
+              <Motion.a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-primary hover:text-secondary dark:text-primary-light dark:hover:text-secondary-light transition-colors duration-300"
+                whileHover={{
+                  scale: 1.1,
+                  boxShadow: '0 0 15px rgba(108, 43, 217, 0.7)'
+                }}
+                aria-label={social.name}
+                onClick={() => setIsOpen(false)}
+              >
+                {social.icon}
+              </Motion.a>
+            ))}
+          </Motion.div>
+        )}
+      </div>
+    </>
   );
 };
 
