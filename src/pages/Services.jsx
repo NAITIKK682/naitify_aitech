@@ -124,10 +124,12 @@ const Services = () => {
             <div className="w-full md:w-1/2 mt-8 md:mt-0">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full filter blur-3xl opacity-60 hidden lg:block" aria-hidden />
-                {/* Placeholder for visual element, can add image/video later */}
-                <div className="w-full max-w-[520px] mx-auto h-64 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center">
-                  <span className="text-6xl">🚀</span>
-                </div>
+                {/* Rocket Animation Image */}
+                <img
+                  src="/images/rocket.png"
+                  alt="Rocket Animation"
+                  className="w-full max-w-[520px] mx-auto h-auto object-contain rounded-xl"
+                />
               </div>
             </div>
           </div>
@@ -213,15 +215,20 @@ const Services = () => {
             >
               Get Started
             </Button>
-            <Link to="/contact" style={{ textDecoration: 'none', display: 'inline-block' }}>
-              <Button
-                variant="outline"
-                size="xl"
-                className="border-white text-white hover:bg-white hover:text-primary"
+            <Button
+              variant="outline"
+              size="xl"
+              className="border-white text-white hover:bg-white hover:text-primary"
+            >
+              <a
+                href="https://wa.me/918948866980?text=Hello!%20I%E2%80%99m%20interested%20in%20your%20AI%20tools%20and%20website%20services.%20Can%20we%20connect%3F%0A%0AMy%20Contact%20Details%3A%0AName%3A%20%0APhone%20Number%3A%20%0AEmail%20ID%3A%20%0ACity%20%2F%20State%3A%20%0ACompany%20%2F%20Organization%3A%20%0AWebsite%20(if%20any)%3A%20%0AMessage%20%2F%20Query%3A"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full"
               >
-                Book Consultation
-              </Button>
-            </Link>
+                Schedule a Consultation
+              </a>
+            </Button>
           </div>
         </div>
       </AnimatedSection>

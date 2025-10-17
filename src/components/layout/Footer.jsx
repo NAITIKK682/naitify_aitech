@@ -52,21 +52,12 @@ const Footer = () => {
                   naitify.aitech@gmail.com
                 </a>
               </p>
-              <div className="mt-4 w-full overflow-hidden rounded-md">
-                <div className="relative" style={{ paddingBottom: '56.25%', height: 0 }}>
-                  <iframe
-                    title="footer-map"
-                     src="https://www.google.com/maps?q=Mumbai&output=embed"
-                    className="absolute inset-0 w-full h-full border-0"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
+
               <div className="flex space-x-4 mt-4">
-                <a href="https://linkedin.com/in/naitikkushwaha" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary-light transition-colors">
+                <a href="https://www.linkedin.com/in/naitik-kushwaha/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary-light transition-colors">
                   LinkedIn
                 </a>
-                <a href="https://github.com/naitikkushwaha" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary-light transition-colors">
+                <a href="https://github.com/NAITIKK682" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary-light transition-colors">
                   GitHub
                 </a>
               </div>

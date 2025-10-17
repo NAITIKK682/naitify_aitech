@@ -563,7 +563,14 @@ const Home = () => {
               size="xl"
               className="border-white text-white hover:bg-white hover:text-primary"
             >
-              Get Started Today
+              <a
+                href="https://wa.me/918948866980?text=Hello!%20I%E2%80%99m%20interested%20in%20your%20AI%20tools%20and%20website%20services.%20Can%20we%20connect%3F%0A%0AMy%20Contact%20Details%3A%0AName%3A%20%0APhone%20Number%3A%20%0AEmail%20ID%3A%20%0ACity%20%2F%20State%3A%20%0ACompany%20%2F%20Organization%3A%20%0AWebsite%20(if%20any)%3A%20%0AMessage%20%2F%20Query%3A"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full"
+              >
+                Schedule a Consultation
+              </a>
             </Button>
           </div>
         </AnimatedSection>
@@ -622,7 +629,6 @@ const VideoHero = () => {
         ref={videoRef}
         className="hero-video w-full h-auto object-contain rounded-xl"
         src="/videos/hero.mp4"
-        poster="/images/hero-image.jpg"
         playsInline
         muted
         loop
