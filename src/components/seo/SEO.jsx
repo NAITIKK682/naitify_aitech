@@ -12,24 +12,28 @@ const setMeta = (name, content, attr = 'name') => {
   el.setAttribute('content', content);
 };
 
-const SEO = ({ 
-  title, 
-  description, 
-  keywords, 
+const SEO = ({
+  title,
+  description,
+  keywords,
   ogImage = '/og-image.jpg',
   ogType = 'website',
   canonical
 }) => {
-  const siteTitle = 'Naitify AiTech';
+  const siteTitle = 'Naitify_AiTech';
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 
   useEffect(() => {
     const prevTitle = document.title;
     document.title = fullTitle;
 
+    // Update meta description
     setMeta('description', description);
+
+    // Update keywords if provided
     if (keywords) setMeta('keywords', keywords);
 
+    // Update canonical URL - SEO optimization for domain
     if (canonical) {
       let link = document.head.querySelector('link[rel="canonical"]');
       if (!link) {
@@ -40,13 +44,14 @@ const SEO = ({
       link.setAttribute('href', canonical);
     }
 
-    // Open Graph
+    // Open Graph meta tags for social sharing
     setMeta('og:type', ogType, 'property');
     setMeta('og:title', fullTitle, 'property');
     setMeta('og:description', description, 'property');
     setMeta('og:image', ogImage, 'property');
+    setMeta('og:url', canonical, 'property'); // Add og:url for better sharing
 
-    // Twitter
+    // Twitter Card meta tags
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', fullTitle);
     setMeta('twitter:description', description);

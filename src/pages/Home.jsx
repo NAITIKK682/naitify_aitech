@@ -10,10 +10,13 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
+      {/* SEO Optimization - Unique meta tags for Home page */}
       <SEO
         title="Home"
-        description="Naitify AiTech - Leading provider of AI solutions and technology services for businesses of all sizes."
-        keywords="AI technology, machine learning, digital transformation, tech solutions"
+        description="Naitify_AiTech - Building smarter web and AI solutions for the future. AI websites, chatbots, and automation tools for students, startups, and businesses."
+        keywords="AI technology, web development, chatbots, automation, machine learning, digital transformation, tech solutions, Naitify_AiTech"
+        canonical="https://naitifyaitech.com"
+        ogImage="/images/hero-image.jpg"
       />
       <div className="space-y-20">
         {/* Hero Section */}
