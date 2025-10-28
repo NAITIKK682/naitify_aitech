@@ -13,7 +13,8 @@ const Projects = () => {
     { title: "EHR System with AI Chatbot", githubUrl: "https://github.com/NAITIKK682/EHR-SYSTEM", liveUrl: "https://ehr-system-2.onrender.com" },
     { title: "Vehicle Price Prediction", githubUrl: "https://github.com/NAITIKK682/vehicle-price-prediction", liveUrl: null },
     { title: "Heart Disease Prediction", githubUrl: "https://github.com/NAITIKK682/Heart-Disease-Prediction", liveUrl: null },
-    { title: "Fraud Transaction Detection", githubUrl: "https://github.com/NAITIKK682/Fraud-Transaction-Detection", liveUrl: null }
+    { title: "Fraud Transaction Detection", githubUrl: "https://github.com/NAITIKK682/Fraud-Transaction-Detection", liveUrl: null },
+    { title: "Agrismart 2.0", githubUrl: "https://github.com/NAITIKK682/AgriSmart-2.0", liveUrl: "https://agri-smart-2-0-hoh4n2d4g-naitikk682s-projects.vercel.app/" },
   ];
 
   const projects = [
@@ -70,7 +71,16 @@ const Projects = () => {
       category: "AI",
       githubUrl: "https://github.com/NAITIKK682/Fraud-Transaction-Detection",
       liveUrl: null
-    }
+    },
+    {
+      title: "Agrismart 2.0",
+      description: "An advanced agricultural management platform with AI-driven insights for crop monitoring, yield prediction, and smart farming solutions.",
+      technologies: ["React", "Node.js", "AI/ML", "IoT", "MongoDB"],
+      image: "/images/agrismart.png",
+      category: "AI",
+      githubUrl: "https://github.com/NAITIKK682/AgriSmart-2.0",
+      liveUrl: "https://agri-smart-2-0-hoh4n2d4g-naitikk682s-projects.vercel.app/"
+    },
   ];
 
   const categories = ['All Projects', 'Web Development', 'ML', 'AI', 'IoT'];
