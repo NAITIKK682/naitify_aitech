@@ -13,8 +13,8 @@ const Home = () => {
       {/* SEO Optimization - Unique meta tags for Home page */}
       <SEO
         title="Home"
-        description="Naitify_AiTech - Building smarter web and AI solutions for the future. AI websites, chatbots, and automation tools for students, startups, and businesses."
-        keywords="AI technology, web development, chatbots, automation, machine learning, digital transformation, tech solutions, Naitify_AiTech"
+        description="NaitifyAi - Building smarter web and AI solutions for the future. AI websites, chatbots, and automation tools for students, startups, and businesses."
+        keywords="AI technology, web development, chatbots, automation, machine learning, digital transformation, tech solutions, NaitifyAi"
         canonical="https://naitifyaitech.com"
         ogImage="/images/hero-image.jpg"
       />
@@ -50,7 +50,7 @@ const Home = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  At Naitify_AiTech, we create smart AI-powered websites,
+                  At NaitifyAi, we create smart AI-powered websites,
                   chatbots, and automation tools that simplify learning,
                   business, and everyday work. Founded by Naitik Kushwaha in
                   2025 (Mumbai), we combine creativity and AI innovation to

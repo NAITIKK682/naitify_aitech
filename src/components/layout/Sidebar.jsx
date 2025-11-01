@@ -143,7 +143,7 @@ const Sidebar = () => {
           {/* Logo */}
           <div className="p-6 border-b border-gray-200 dark:border-dark-lighter">
             <Link to="/" className="flex items-center justify-center w-full" onClick={() => setIsOpen(false)}>
-              <span className="text-2xl font-display font-bold gradient-text text-center">Naitify_AiTech</span>
+              <span className="text-2xl font-display font-bold gradient-text text-center">NaitifyAi</span>
             </Link>
           </div>
 
@@ -180,7 +180,7 @@ const Sidebar = () => {
           {/* Footer */}
           <div className="p-4 border-t border-gray-200 dark:border-dark-lighter">
             <p className="text-xs text-center text-gray-500 dark:text-gray-400">
-              &copy; {new Date().getFullYear()} Naitify_AiTech
+              &copy; {new Date().getFullYear()} NaitifyAi
               <br />
               by Naitik Kushwaha
             </p>

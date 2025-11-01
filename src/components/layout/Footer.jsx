@@ -7,12 +7,12 @@ const Footer = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-display font-bold mb-4 gradient-text">Naitify_AiTech</h3>
+            <h3 className="text-xl font-display font-bold mb-4 gradient-text">NaitifyAi</h3>
             <p className="text-gray-300 mb-4">
               Empowering small teams with lightweight, intelligent web solutions — built to work, not just impress. 
             </p>
             <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} Naitify_AiTech<br />
+              &copy; {new Date().getFullYear()} NaitifyAi<br />
               All rights reserved.
             </p>
           </div>

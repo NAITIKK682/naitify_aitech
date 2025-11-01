@@ -92,7 +92,7 @@ const Services = () => {
                 Building Smarter Web & AI Solutions for the Future
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                At Naitify_AiTech, we create smart AI-powered websites, chatbots, and automation tools that simplify learning, business, and everyday work. Founded by Naitik Kushwaha in 2025 (Mumbai), we combine creativity and AI innovation to solve real-world problems with modern technology.
+                At NaitifyAi, we create smart AI-powered websites, chatbots, and automation tools that simplify learning, business, and everyday work. Founded by Naitik Kushwaha in 2025 (Mumbai), we combine creativity and AI innovation to solve real-world problems with modern technology.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button

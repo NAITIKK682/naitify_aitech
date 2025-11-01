@@ -37,8 +37,8 @@ const About = () => {
       {/* SEO Optimization - Unique meta tags for About page */}
       <SEO
         title="About Us"
-        description="Learn about Naitify_AiTech - Founded in 2025 by Naitik Kushwaha, we build AI-powered websites, chatbots, and automation tools for students, startups, and businesses."
-        keywords="about Naitify_AiTech, AI company, web development, chatbots, automation, Naitik Kushwaha, founder, team"
+        description="Learn about NaitifyAi - Founded in 2025 by Naitik Kushwaha, we build AI-powered websites, chatbots, and automation tools for students, startups, and businesses."
+        keywords="about NaitifyAi, AI company, web development, chatbots, automation, Naitik Kushwaha, founder, team"
         canonical="https://naitifyaitech.com/about"
         ogImage="/images/hero-image.jpg"
       />
@@ -49,7 +49,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                About Naitify_AiTech
+                About NaitifyAi
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
                 Building smart, modern AI tools for students, startups, and small
@@ -67,7 +67,7 @@ const About = () => {
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-xl"></div>
                 <img
                   src="/images/hero-logo.jpeg"
-                  alt="Naitify_AiTech Office"
+                  alt="NaitifyAi Office"
                   className="relative rounded-xl w-full h-auto shadow-xl"
                 />
               </div>
@@ -75,7 +75,7 @@ const About = () => {
             <div className="md:w-1/2 space-y-6">
               <h2 className="text-3xl font-bold">Our Story</h2>
               <p className="text-gray-600 dark:text-gray-300">
-                Founded in 2025 by Naitik Kushwaha, Naitify_AiTech began as a
+                Founded in 2025 by Naitik Kushwaha, NaitifyAi began as a
                 passion project during his BE AIML studies — focused on making AI
                 practical, simple, and accessible for everyday users.
               </p>
@@ -91,7 +91,7 @@ const About = () => {
                 easy-to-use tools that actually deliver results.
               </p>
               <p className="text-gray-600 dark:text-gray-300">
-                👤 "I started Naitify_AiTech because I saw how hard it was for
+                👤 "I started NaitifyAi because I saw how hard it was for
                 students and small teams to build AI tools — even when they had
                 great ideas. If I can help you ship faster, learn smarter, and
                 save time… that’s success." — Naitik Kushwaha, Founder & Lead
@@ -221,7 +221,7 @@ const About = () => {
                   year: "2025",
                   title: "The Beginning :",
                   description:
-                    "Naitify_AiTech started as a small idea in Mumbai to bring AI-based automation and smart websites to students and startups.",
+                    "NaitifyAi started as a small idea in Mumbai to bring AI-based automation and smart websites to students and startups.",
                 },
                 {
                   year: "2025",

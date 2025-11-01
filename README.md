@@ -60,7 +60,7 @@ Built with **React + Vite frontend**, **Tailwind CSS**, and **Node.js + Express 
 
 ## Project Structure
 
-naitify-aitech-website/
+naitify-ai-website/
 │
 ├── backend/
 │ ├── config/

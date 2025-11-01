@@ -81,7 +81,7 @@ const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.35 }}
             >
-              Naitify_AiTech
+              NaitifyAi
             </Motion.span>
           </Link>
         </div>
@@ -97,7 +97,7 @@ const Header = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.35 }}
               >
-                Naitify_AiTech
+                NaitifyAi
               </Motion.span>
             </Link>
           </div>

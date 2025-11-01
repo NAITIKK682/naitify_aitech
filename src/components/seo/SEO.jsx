@@ -20,7 +20,7 @@ const SEO = ({
   ogType = 'website',
   canonical
 }) => {
-  const siteTitle = 'Naitify_AiTech';
+  const siteTitle = 'NaitifyAi';
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 
   useEffect(() => {

@@ -6,21 +6,21 @@ const testimonials = [
     id: 1,
     name: 'Sarah Johnson',
     role: 'CTO, TechVision Inc.',
-    content: 'Naitify_AiTech transformed our business operations with their cutting-edge AI solutions. The implementation was seamless and the results were immediate.',
+    content: 'NaitifyAi transformed our business operations with their cutting-edge AI solutions. The implementation was seamless and the results were immediate.',
     avatar: '👩‍💼'
   },
   {
     id: 2,
     name: 'Michael Chen',
     role: 'Director of Innovation, FutureCorp',
-    content: 'The machine learning models developed by Naitify_AiTech have increased our prediction accuracy by 78%. Their team\'s expertise is unmatched in the industry.',
+    content: 'The machine learning models developed by NaitifyAi have increased our prediction accuracy by 78%. Their team\'s expertise is unmatched in the industry.',
     avatar: '👨‍💻'
   },
   {
     id: 3,
     name: 'Elena Rodriguez',
     role: 'Head of Data Science, DataDrive',
-    content: 'Working with Naitify_AiTech was a game-changer for our data analytics capabilities. Their solutions are innovative, scalable, and incredibly effective.',
+    content: 'Working with NaitifyAi was a game-changer for our data analytics capabilities. Their solutions are innovative, scalable, and incredibly effective.',
     avatar: '👩‍🔬'
   }
 ];

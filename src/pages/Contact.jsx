@@ -153,7 +153,7 @@ const Contact = () => {
               <div className="w-full">
                 <div className="relative" style={{ paddingBottom: '56.25%', height: 0 }}>
                   <iframe
-                    title="Naitify_AiTech location"
+                    title="NaitifyAi location"
                      src="https://www.google.com/maps?q=Mumbai&output=embed"
                     style={{ border: 0, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
                     allowFullScreen
