@@ -17,9 +17,9 @@ const Button = ({
   const baseClasses = 'inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-gradient-to-r from-primary to-secondary text-white hover:from-primary-dark hover:to-secondary-dark focus:ring-primary',
+    primary: 'bg-gradient-to-r from-primary to-secondary text-white hover:from-primary-dark hover:to-secondary-dark focus:ring-primary hover:shadow-[0_0_15px_rgba(127,90,240,0.5)]',
     secondary: 'bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary',
-    outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary dark:border-primary-light dark:text-primary-light dark:hover:bg-primary-light dark:hover:text-dark',
+    outline: 'border-2 border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white hover:border-transparent hover:shadow-[0_0_15px_rgba(127,90,240,0.5)] focus:ring-primary dark:border-primary-light dark:text-primary-light dark:hover:bg-gradient-to-r dark:hover:from-primary-light dark:hover:to-secondary-light dark:hover:text-dark',
     ghost: 'text-primary hover:bg-primary/10 focus:ring-primary dark:text-primary-light dark:hover:bg-primary-light/10',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
   };

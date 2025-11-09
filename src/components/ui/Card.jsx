@@ -15,7 +15,7 @@ const Card = ({
     default: 'bg-white dark:bg-dark-light shadow-md',
     outlined: 'border border-gray-200 dark:border-gray-700',
     elevated: 'bg-white dark:bg-dark-light shadow-lg',
-    glass: 'backdrop-blur-md bg-white/30 dark:bg-dark/30 shadow-lg',
+    glass: 'backdrop-blur-md bg-white/20 dark:bg-white/10 border border-white/30 dark:border-white/20 shadow-[0_0_10px_rgba(127,90,240,0.3)] hover:shadow-[0_0_20px_rgba(127,90,240,0.6)] hover:scale-105',
     gradient: 'bg-gradient-to-br from-primary/10 to-secondary/10 dark:from-primary-light/10 dark:to-secondary-light/10'
   };
 
@@ -28,10 +28,6 @@ const Card = ({
       className={`${baseClasses} ${variantClasses[variant]} ${hoverClasses} ${className}`}
       onClick={onClick}
       whileHover={hoverEffect ? { y: -5 } : {}}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
       {...props}
     >
       {children}

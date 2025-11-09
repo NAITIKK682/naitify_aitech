@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
@@ -6,66 +7,191 @@ import TestimonialSlider from '../components/ui/TestimonialSlider';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   const services = [
     {
-      icon: '🤖',
-      title: 'AI-Powered Chatbots',
-      description: 'Build custom chatbots that answer FAQs, guide users, or collect leads — using simple NLP, no PhD required. Perfect for college projects, small business websites, or customer support.'
+      category: '🤖 Artificial Intelligence Solutions',
+      items: [
+        {
+          icon: '🤖',
+          title: 'AI-Powered Chatbots',
+          description: 'Smart chatbots for FAQs, lead generation, and user guidance.'
+        },
+        {
+          icon: '🧠',
+          title: 'AI Learning & Assistant Tools',
+          description: 'Code explanation, debugging, and project guidance.'
+        },
+        {
+          icon: '📝',
+          title: 'AI-Powered Content Assistants',
+          description: 'Generate blogs, reports, and posts instantly.'
+        },
+        {
+          icon: '🎯',
+          title: 'Predictive Analytics & Forecasting',
+          description: 'Analyze and predict trends for smarter decisions.'
+        },
+        {
+          icon: '⚡',
+          title: 'AI Model & API Integration',
+          description: 'Integrate ChatGPT, Gemini, or custom AI APIs.'
+        }
+      ]
     },
     {
-      icon: '🌐',
-      title: 'Smart Website Automation',
-      description: 'Turn static sites into smart ones. Auto-update content, collect user feedback, or integrate AI forms — all with clean React + Flask backend. Ideal for student portfolios or MVP startups.'
+      category: '🌐 Web & App Development',
+      items: [
+        {
+          icon: '🌐',
+          title: 'AI-Ready Business Websites',
+          description: 'Responsive, full-stack AI-powered websites.'
+        },
+        {
+          icon: '💻',
+          title: 'Web Development',
+          description: 'Portfolio, Resume, School, and Startup sites.'
+        },
+        {
+          icon: '📱',
+          title: 'Mobile App Development',
+          description: 'Android/iOS apps using React Native or Flutter.'
+        },
+        {
+          icon: '🛍️',
+          title: 'E-Commerce & Booking Platforms',
+          description: 'Websites with product & payment systems.'
+        },
+        {
+          icon: '🧩',
+          title: 'Landing Page Development',
+          description: 'Fast SEO-optimized landing pages.'
+        },
+        {
+          icon: '🧾',
+          title: 'Website Maintenance & Hosting Setup',
+          description: 'Keep websites secure and updated.'
+        }
+      ]
     },
     {
-      icon: '📊',
-      title: 'Data Insights for Small Projects',
-      description: 'Got Excel sheets or basic databases? We help you visualize trends, spot patterns, and make smarter decisions — without complex ML. Great for academic projects or early business tracking.'
+      category: '⚙️ Automation & Data Intelligence',
+      items: [
+        {
+          icon: '⚙️',
+          title: 'Workflow Automation',
+          description: 'Automate reports, emails, and data sync.'
+        },
+        {
+          icon: '📊',
+          title: 'Data Insights & Visualization',
+          description: 'Create dashboards and visual reports.'
+        },
+        {
+          icon: '🔍',
+          title: 'SEO & Web Analytics',
+          description: 'Optimize visibility and traffic analytics.'
+        },
+        {
+          icon: '📈',
+          title: 'CRM Integration',
+          description: 'Automate client tracking and communication.'
+        },
+        {
+          icon: '🗂️',
+          title: 'Form & Report Automation',
+          description: 'AI-based document handling tools.'
+        }
+      ]
     },
     {
-      icon: '🧠',
-      title: 'AI Learning Assistants (For Students!)',
-      description: 'Stuck with coding, theory, or project ideas? Our lightweight AI tools explain concepts, debug code snippets, or suggest project structures — built by students, for students.'
+      category: '🎨 Design & Branding',
+      items: [
+        {
+          icon: '🎨',
+          title: 'UI/UX Design',
+          description: 'Modern interfaces for web and mobile.'
+        },
+        {
+          icon: '🪄',
+          title: 'Logo & Brand Identity Design',
+          description: 'Unique visuals for startups and creators.'
+        },
+        {
+          icon: '📱',
+          title: 'Social Media Creatives',
+          description: 'Posters, ads, and reels with AI enhancement.'
+        },
+        {
+          icon: '🧰',
+          title: 'Product Mockups & Prototypes',
+          description: 'Showcase app or web concepts visually.'
+        }
+      ]
     },
     {
-      icon: '⚙️',
-      title: 'Workflow Automators',
-      description: 'Automate boring stuff: file sorting, report generation, email reminders, or data entry between Google Sheets & your app. Save 5+ hours/week with simple Python + Node.js scripts.'
+      category: '💡 Consulting & Cloud Support',
+      items: [
+        {
+          icon: '💡',
+          title: 'Startup Tech Consulting',
+          description: 'Help choose stacks, define MVPs, and AI integration.'
+        },
+        {
+          icon: '🧩',
+          title: 'AI Project Guidance',
+          description: 'Support for students & hackathon projects.'
+        },
+        {
+          icon: '☁️',
+          title: 'Cloud Deployment',
+          description: 'Deploy apps on AWS, Render, or Vercel.'
+        },
+        {
+          icon: '🔗',
+          title: 'API & Database Integration',
+          description: 'Connect APIs and databases securely.'
+        },
+        {
+          icon: '🔒',
+          title: 'Security & Optimization',
+          description: 'Improve speed, SEO, and protection.'
+        }
+      ]
     },
     {
-      icon: '💡',
-      title: 'Startup Tech Consulting (Zero Fluff)',
-      description: 'Not sure how to start your AI project? We\'ll help you pick the right stack (React? Flask? MongoDB?), scope your MVP, and avoid common beginner traps — all in plain language.'
-    },
-    {
-      icon: '🎯',
-      title: 'Predictive Analytics',
-      description: 'Forecast future trends and behaviors with our advanced predictive models to make data-driven decisions.'
-    },
-    {
-      icon: '🧠',
-      title: 'Intelligent Automation',
-      description: 'Streamline workflows and reduce manual tasks with our AI-powered automation solutions.'
-    },
-    {
-      icon: '🤖',
-      title: 'AI Consulting',
-      description: 'Expert guidance on implementing AI strategies tailored to your specific business needs and goals.'
-    },
-    {
-      icon: '📝',
-      title: 'AI-Powered Content Assistants',
-      description: 'Struggling with writing? Our tools help you draft emails, project reports, or social media posts using smart prompts — no fancy GPT API needed. Great for students and solopreneurs.'
-    },
-    {
-      icon: '🌐',
-      title: 'AI-Ready Business Websites (End-to-End)',
-      description: 'We build complete, responsive websites — from design to deployment — with built-in AI features like smart contact forms, auto-responses, or content suggestions. Built on React + Flask/Node, hosted & maintained by us. One-time delivery or monthly plan.'
-    },
-    {
-      icon: '🔐',
-      title: 'Secure Student Project Hosting',
-      description: 'Need to showcase your AI/ML project without worrying about security or downtime? We offer free-tier hosting + basic SSL for student portfolios, hackathons, or academic submissions.'
+      category: '🔐 Hosting & Maintenance',
+      items: [
+        {
+          icon: '🔐',
+          title: 'Secure Project Hosting',
+          description: 'SSL-protected hosting for AI/ML projects.'
+        },
+        {
+          icon: '🔄',
+          title: 'Continuous Support',
+          description: 'Updates, bug fixes, and enhancements.'
+        },
+        {
+          icon: '💾',
+          title: 'Backup & Recovery Setup',
+          description: 'Automated backups and data safety.'
+        }
+      ]
     }
   ];
 
@@ -77,7 +203,25 @@ const Services = () => {
   ];
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-20 relative">
+      {/* Animated Gradient Background */}
+      <motion.div
+        className="fixed inset-0 -z-10 opacity-10"
+        animate={{
+          background: [
+            'linear-gradient(45deg, #7f5af0, #ff6b6b, #42dff4)',
+            'linear-gradient(135deg, #ff6b6b, #42dff4, #7f5af0)',
+            'linear-gradient(225deg, #42dff4, #7f5af0, #ff6b6b)',
+            'linear-gradient(315deg, #7f5af0, #ff6b6b, #42dff4)',
+          ],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          repeatType: 'loop',
+        }}
+      />
+
       {/* Intro Section */}
       <section className="relative min-h-[60vh] sm:min-h-[70vh] flex items-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
@@ -88,7 +232,7 @@ const Services = () => {
         <div className="container-custom z-10">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/2 space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-display bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                 Building Smarter Web & AI Solutions for the Future
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -137,7 +281,7 @@ const Services = () => {
       </section>
 
       {/* Services Section */}
-      <AnimatedSection className="container mx-auto px-4">
+      <AnimatedSection className="container mx-auto px-4 z-10" direction="up">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -145,19 +289,33 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="p-6 hover:shadow-lg hover:scale-105 transition-all duration-300"
-              variant="elevated"
-            >
-              <div className="text-4xl mb-4 text-center">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-3 text-center">{service.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-center">{service.description}</p>
-            </Card>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+        >
+          {services.map((category, categoryIndex) => (
+            <motion.div key={categoryIndex} variants={itemVariants} className="mb-16">
+              <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                {category.category}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {category.items.map((service, index) => (
+                  <motion.div key={index} variants={itemVariants}>
+                    <Card
+                      className="p-6 hover:shadow-lg hover:scale-105 transition-all duration-300"
+                      variant="elevated"
+                    >
+                      <div className="text-4xl mb-4 text-center">{service.icon}</div>
+                      <h4 className="text-xl font-semibold mb-3 text-center">{service.title}</h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-center">{service.description}</p>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </AnimatedSection>
 
       {/* Key Metrics Section */}
